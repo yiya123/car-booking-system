@@ -17,6 +17,7 @@ public class Order {
 
     private String endTime;
 
+    //all the money when booking a car for several days
     private double income;
 
     public String getId() {
@@ -65,5 +66,17 @@ public class Order {
 
     public void setIncome(double income) {
         this.income = income;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
+                ", carId='" + carId + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
+                ", income=" + income +
+                '}';
     }
 }

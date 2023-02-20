@@ -10,7 +10,19 @@ public class Car {
 
     private String type;
     private int count;
+
+    //the price of renting car per day
     private double price;
+
+    public Car() {
+    }
+
+    public Car(String id, String type, int count, double price) {
+        this.id = id;
+        this.type = type;
+        this.count = count;
+        this.price = price;
+    }
 
     public String getId() {
         return id;
