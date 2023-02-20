@@ -31,13 +31,6 @@ import static org.mockito.Mockito.mock;
 class CarBookingSystemApplicationTests {
 
 
-
-    @Test
-    void contextLoads() {
-    }
-
-
-
     @Test
     void testAddOrder() throws ParseException {
         String type ="BMW 650";
