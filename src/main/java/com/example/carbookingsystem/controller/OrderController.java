@@ -8,6 +8,7 @@ import com.example.carbookingsystem.service.CarService;
 import com.example.carbookingsystem.service.OrderService;
 import com.example.carbookingsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +28,7 @@ public class OrderController {
     private CarService carService;
 
 
-    @RequestMapping("/rent")
+    @GetMapping("/rent")
     public int addOrder(String userId, String type, String beginTime, String endTime) throws ParseException {
         Car car = carService.getCarByType(type);
         String carId = car.getId();
