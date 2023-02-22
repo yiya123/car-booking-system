@@ -39,10 +39,10 @@ public class SwaggerConfiguration {
     @Bean
     public ApiInfo apiInfo(){
         Contact contact = new Contact("Lisa Yang",
-                "http://www.baidu.com", "1430369130@qq.com");
+                "https://github.com/yiya123/car-booking-system", "1430369130@qq.com");
 
         return new ApiInfo("CarBookingSystem","Providing the service of renting cars","v-1.0",
                 "localhost:8080", contact,"SpringBoot 2.7.8",
-                "http://www.baidu.com",new ArrayList());
+                "https://github.com/yiya123/car-booking-system",new ArrayList());
     }
 }
