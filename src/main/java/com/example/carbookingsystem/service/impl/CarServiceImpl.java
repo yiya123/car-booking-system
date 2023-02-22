@@ -21,12 +21,17 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public int addCar(Car car) {
+    public synchronized int addCar(Car car) {
         return carMapper.addCar(car);
     }
 
     @Override
     public Car getCarByType(String type) {
         return carMapper.getCarByType(type);
+    }
+
+    @Override
+    public synchronized int updateCarByCount(String id, int count) {
+        return carMapper.updateCarByCount(id, count);
     }
 }

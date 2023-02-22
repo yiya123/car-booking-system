@@ -4,6 +4,7 @@ import com.example.carbookingsystem.model.Car;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface CarMapper {
@@ -16,4 +17,6 @@ public interface CarMapper {
 
     @Select("select * from car where type= #{type}")
     Car getCarByType(String type);
+    @Update("update car set count = #{count} where id=#{id}")
+    int updateCarByCount(String id, int count);
 }

@@ -10,4 +10,6 @@ public interface CarService {
     int addCar(Car car);
 
     Car getCarByType(String type);
+
+    int updateCarByCount(String id, int count);
 }

@@ -3,10 +3,10 @@ package com.example.carbookingsystem.controller;
 
 import com.example.carbookingsystem.model.Car;
 import com.example.carbookingsystem.model.Order;
-import com.example.carbookingsystem.model.User;
+
 import com.example.carbookingsystem.service.CarService;
 import com.example.carbookingsystem.service.OrderService;
-import com.example.carbookingsystem.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +16,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
+import java.util.logging.Logger;
+
 
 @RestController
 @RequestMapping("/order")
 public class OrderController {
+
+    private Logger logger = Logger.getLogger(String.valueOf(OrderController.class));
 
     @Autowired
     private OrderService orderService;
@@ -33,6 +37,8 @@ public class OrderController {
         Car car = carService.getCarByType(type);
         String carId = car.getId();
         double price = car.getPrice();
+        int carCount = car.getCount();
+
         Order order = new Order();
 
         String id = UUID.randomUUID().toString().replace("-","");
@@ -53,6 +59,15 @@ public class OrderController {
         order.setIncome(income);
 
         int count = orderService.addOrder(order);
+        if(count > 1){
+            carCount = carCount -1;
+            if(carCount > -1){
+                carService.updateCarByCount(carId, carCount);
+            }else {
+                logger.info("the car number is not enough!");
+            }
+
+        }
         return count;
     }
 }

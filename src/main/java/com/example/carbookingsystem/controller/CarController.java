@@ -19,7 +19,7 @@ public class CarController {
     private CarService carService;
 
     @GetMapping(value = "/add")
-    public synchronized int addCar(String type, int count, double price){
+    public int addCar(String type, int count, double price){
         Car car = new Car();
         String carId = UUID.randomUUID().toString().replace("-","");
         car.setId(carId);
