@@ -59,7 +59,7 @@ public class OrderController {
         order.setIncome(income);
 
         int count = orderService.addOrder(order);
-        if(count > 1){
+        if(count > 0){
             carCount = carCount -1;
             if(carCount > -1){
                 carService.updateCarByCount(carId, carCount);
