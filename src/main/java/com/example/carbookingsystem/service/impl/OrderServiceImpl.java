@@ -13,7 +13,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
 
     @Override
-    public int addOrder(Order order) {
+    public synchronized int addOrder(Order order) {
         return orderMapper.addOrder(order);
     }
 
